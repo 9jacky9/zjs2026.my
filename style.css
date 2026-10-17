@@ -1,0 +1,1269 @@
+/* ==========================================================================
+   zjs2026.my - 掌中世界-关于我们 / 品牌介绍 样式系统
+   设计风格：未来拓扑光网 / 品牌数字展厅风 (Futuristic Optical Topology)
+   主色调：石墨曜黑 (#0c0f14) · 电光翡翠绿 (#10b981) · 活力珊瑚橙 (#f97316) · 白金白 (#f1f5f9)
+   ========================================================================== */
+
+:root {
+  --topo-bg-deep: #080b0f;
+  --topo-bg-surface: #10151d;
+  --topo-bg-card: rgba(19, 26, 36, 0.82);
+  --topo-bg-card-hover: rgba(28, 38, 52, 0.95);
+  --topo-border-subtle: rgba(16, 185, 129, 0.16);
+  --topo-border-bright: rgba(16, 185, 129, 0.48);
+  --topo-border-coral: rgba(249, 115, 22, 0.42);
+  --topo-primary: #10b981;
+  --topo-primary-glow: rgba(16, 185, 129, 0.4);
+  --topo-accent-emerald: #34d399;
+  --topo-accent-coral: #f97316;
+  --topo-accent-amber: #fbbf24;
+  --topo-text-primary: #f8fafc;
+  --topo-text-secondary: #94a3b8;
+  --topo-text-muted: #64748b;
+  --topo-radius-sm: 6px;
+  --topo-radius-md: 12px;
+  --topo-radius-lg: 18px;
+  --topo-radius-full: 9999px;
+  --topo-shadow-card: 0 12px 32px -8px rgba(0, 0, 0, 0.6), 0 0 20px -4px rgba(16, 185, 129, 0.12);
+  --topo-shadow-glow: 0 0 24px rgba(16, 185, 129, 0.35);
+  --topo-shadow-coral: 0 0 24px rgba(249, 115, 22, 0.3);
+  --topo-transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  --topo-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--topo-font);
+  background-color: var(--topo-bg-deep);
+  color: var(--topo-text-primary);
+  line-height: 1.66;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 50% -10%, #064e3b 0%, #080b0f 50%, #040608 100%);
+  background-attachment: fixed;
+}
+
+/* 统一超链接规范：强调整体高亮，访问前后保持一致，绝不显示默认蓝/紫 */
+a {
+  color: var(--topo-accent-emerald);
+  text-decoration: none;
+  transition: var(--topo-transition);
+}
+
+a:visited {
+  color: var(--topo-accent-emerald);
+}
+
+a:hover, a:focus {
+  color: var(--topo-accent-amber);
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--topo-accent-emerald);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img, svg {
+  vertical-align: middle;
+}
+
+/* 容器与版心 */
+.topo-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* 顶部状态条 */
+.topo-topbar {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(249, 115, 22, 0.15), rgba(16, 185, 129, 0.2));
+  border-bottom: 1px solid var(--topo-border-subtle);
+  padding: 8px 16px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--topo-text-secondary);
+}
+.topo-topbar-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.radar-beacon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--topo-accent-emerald);
+  font-weight: 600;
+}
+.radar-ping {
+  width: 8px;
+  height: 8px;
+  background-color: var(--topo-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--topo-primary);
+  animation: radarScan 2.2s infinite;
+}
+@keyframes radarScan {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 0.35; box-shadow: 0 0 16px var(--topo-primary); }
+  100% { transform: scale(0.9); opacity: 0.9; }
+}
+
+/* 吸顶导航栏 */
+.topo-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(8, 11, 15, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--topo-border-subtle);
+  transition: var(--topo-transition);
+}
+
+.topo-nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.topo-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--topo-text-primary);
+}
+.topo-logo-link:hover {
+  color: var(--topo-text-primary);
+}
+
+.topo-logo-svg {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 0 8px var(--topo-primary-glow));
+}
+
+.topo-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.topo-logo-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #ffffff 40%, var(--topo-accent-emerald) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.topo-logo-sub {
+  font-size: 11px;
+  color: var(--topo-accent-coral);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* 导航链接 */
+.topo-nav-menu {
+  display: flex;
+  align-items: center;
+}
+.topo-nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 26px;
+}
+.topo-nav-item a {
+  color: var(--topo-text-secondary);
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 8px 4px;
+  position: relative;
+}
+.topo-nav-item a:hover {
+  color: var(--topo-accent-emerald);
+}
+.topo-nav-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--topo-accent-emerald), var(--topo-accent-coral));
+  transition: width 0.25s ease;
+}
+.topo-nav-item a:hover::after {
+  width: 100%;
+}
+
+/* 导航右侧 CTA */
+.topo-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* 按钮体系 */
+.btn-topo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: var(--topo-radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--topo-transition);
+  text-decoration: none !important;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.btn-topo-primary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+}
+.btn-topo-primary:hover {
+  background: linear-gradient(135deg, #34d399, #10b981);
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.6);
+  transform: translateY(-1px);
+}
+.btn-topo-coral {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(249, 115, 22, 0.35);
+}
+.btn-topo-coral:hover {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  box-shadow: 0 6px 24px rgba(249, 115, 22, 0.55);
+  transform: translateY(-1px);
+}
+.btn-topo-outline {
+  background: rgba(16, 21, 29, 0.6);
+  color: var(--topo-accent-emerald) !important;
+  border: 1px solid var(--topo-border-bright);
+}
+.btn-topo-outline:hover {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: var(--topo-accent-emerald);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+.btn-topo-sm {
+  padding: 7px 16px;
+  font-size: 13px;
+}
+.btn-topo-lg {
+  padding: 13px 30px;
+  font-size: 16px;
+}
+
+/* 移动端汉堡菜单 (纯 CSS) */
+.topo-nav-toggle {
+  display: none;
+}
+.topo-hamburger-label {
+  display: none;
+  width: 36px;
+  height: 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border-radius: var(--topo-radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--topo-border-subtle);
+}
+.topo-hamburger-label span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--topo-text-primary);
+  transition: var(--topo-transition);
+}
+
+/* Hero 区域：全球光网拓扑展厅 (Global Topology Showroom Hero) */
+.topo-hero {
+  position: relative;
+  padding: 80px 0 70px;
+  overflow: hidden;
+}
+.topo-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+}
+.topo-badge-milestone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid var(--topo-border-bright);
+  border-radius: var(--topo-radius-full);
+  font-size: 13px;
+  color: var(--topo-accent-emerald);
+  margin-bottom: 22px;
+}
+.topo-badge-flag {
+  background: var(--topo-accent-coral);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: var(--topo-radius-full);
+}
+.topo-hero-title {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+.topo-title-gradient {
+  background: linear-gradient(135deg, #a7f3d0 0%, #34d399 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.topo-hero-desc {
+  font-size: 16.5px;
+  color: var(--topo-text-secondary);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 580px;
+}
+.topo-hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.topo-metrics-strip {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.topo-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+.topo-metric-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--topo-text-primary);
+}
+.topo-metric-num span {
+  color: var(--topo-accent-coral);
+  font-size: 18px;
+}
+.topo-metric-label {
+  font-size: 12px;
+  color: var(--topo-text-muted);
+}
+
+/* Hero 右侧：手托全球光网拓扑动效 */
+.topo-visual-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.topo-svg-canvas {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  filter: drop-shadow(0 0 32px rgba(16, 185, 129, 0.28));
+}
+.topo-palm-cradle {
+  transform-origin: 220px 335px;
+  animation: topoPalmHover 5.5s ease-in-out infinite;
+}
+@keyframes topoPalmHover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+.topo-aura-pulse {
+  transform-origin: 220px 175px;
+  animation: topoAuraGlow 4s ease-in-out infinite;
+}
+@keyframes topoAuraGlow {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 0.95; }
+}
+.topo-mesh-system {
+  transform-origin: 220px 175px;
+  animation: topoMeshFloat 5.5s ease-in-out infinite;
+}
+@keyframes topoMeshFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.topo-radar-sweep {
+  transform-origin: 220px 175px;
+  animation: topoRadarSpin 12s linear infinite;
+}
+@keyframes topoRadarSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.beam-dash-animate {
+  stroke-dasharray: 8 6;
+  animation: beamDash 16s linear infinite;
+}
+@keyframes beamDash {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+.topo-core-ripple {
+  transform-origin: 220px 175px;
+  animation: coreRipple 3s ease-in-out infinite;
+}
+@keyframes coreRipple {
+  0%, 100% { transform: scale(1); stroke-width: 2px; }
+  50% { transform: scale(1.12); stroke-width: 3px; }
+}
+.topo-stream-beam {
+  animation: topoStreamRise 2.2s linear infinite;
+}
+.topo-stream-beam-fast {
+  animation: topoStreamRise 1.6s linear infinite;
+}
+@keyframes topoStreamRise {
+  0% { stroke-dashoffset: 20; opacity: 0.25; }
+  50% { opacity: 0.95; }
+  100% { stroke-dashoffset: 0; opacity: 0.25; }
+}
+.topo-dot-blink {
+  transform-origin: 140px 393px;
+  animation: topoDotBlink 2s ease-in-out infinite;
+}
+@keyframes topoDotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+
+/* 通用 Section 头部 */
+.topo-section {
+  padding: 80px 0;
+  position: relative;
+}
+.topo-sec-header {
+  text-align: center;
+  margin-bottom: 54px;
+}
+.topo-sec-pill {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--topo-radius-full);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--topo-border-subtle);
+  color: var(--topo-accent-emerald);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.topo-sec-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+.topo-sec-desc {
+  font-size: 16px;
+  color: var(--topo-text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* 品牌基石三栏卡片 (3张) */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.pillar-card {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-left: 4px solid var(--topo-primary);
+  border-radius: var(--topo-radius-md);
+  padding: 32px 24px;
+  transition: var(--topo-transition);
+  position: relative;
+}
+.pillar-card:hover {
+  background: var(--topo-bg-card-hover);
+  border-color: var(--topo-border-bright);
+  transform: translateY(-4px);
+  box-shadow: var(--topo-shadow-card);
+}
+.pillar-icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--topo-radius-sm);
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid var(--topo-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--topo-accent-emerald);
+}
+.pillar-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--topo-text-primary);
+}
+.pillar-text {
+  font-size: 14px;
+  color: var(--topo-text-secondary);
+  line-height: 1.7;
+}
+
+/* 全球拓扑覆盖 (3张) */
+.infra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.infra-card {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-md);
+  padding: 28px 22px;
+  transition: var(--topo-transition);
+}
+.infra-card:hover {
+  border-color: var(--topo-accent-coral);
+  transform: translateY(-3px);
+  box-shadow: var(--topo-shadow-coral);
+}
+.infra-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--topo-radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(249, 115, 22, 0.14);
+  color: var(--topo-accent-coral);
+  border: 1px solid var(--topo-border-coral);
+  margin-bottom: 14px;
+}
+.infra-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.infra-desc {
+  font-size: 13.8px;
+  color: var(--topo-text-secondary);
+  line-height: 1.65;
+}
+
+/* 算力与媒体支持 (3张) */
+.eco-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.eco-card {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-md);
+  padding: 28px 22px;
+  transition: var(--topo-transition);
+}
+.eco-card:hover {
+  border-color: var(--topo-border-bright);
+  transform: translateY(-3px);
+}
+.eco-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--topo-radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--topo-accent-emerald);
+  margin-bottom: 14px;
+}
+.eco-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.eco-desc {
+  font-size: 13.8px;
+  color: var(--topo-text-secondary);
+  line-height: 1.65;
+}
+
+/* 方案推荐对比表 (3个套餐) */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+.plan-card {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-lg);
+  padding: 38px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: var(--topo-transition);
+}
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--topo-shadow-card);
+}
+.plan-card-featured {
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.14) 0%, rgba(19, 26, 36, 0.95) 100%);
+  border: 1.5px solid var(--topo-accent-emerald);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.22);
+}
+.plan-flag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #10b981, #059669);
+  color: #ffffff;
+  padding: 4px 16px;
+  border-radius: var(--topo-radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.plan-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.plan-intro {
+  font-size: 13.5px;
+  color: var(--topo-text-muted);
+  margin-bottom: 24px;
+  min-height: 40px;
+}
+.plan-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 26px;
+}
+.plan-curr {
+  font-size: 20px;
+  color: var(--topo-accent-coral);
+  font-weight: 600;
+}
+.plan-val {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--topo-text-primary);
+}
+.plan-cycle {
+  font-size: 14px;
+  color: var(--topo-text-muted);
+}
+.plan-list {
+  list-style: none;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+.plan-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--topo-text-secondary);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.plan-list li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--topo-accent-emerald);
+  flex-shrink: 0;
+}
+.plan-card-action {
+  margin-top: auto;
+}
+.plan-card-action .btn-topo {
+  width: 100%;
+}
+
+/* FAQ 常见答疑 (3个，原生 details 折叠) */
+.faq-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+details.faq-box {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-md);
+  padding: 22px 26px;
+  transition: var(--topo-transition);
+  cursor: pointer;
+}
+details.faq-box:hover, details.faq-box[open] {
+  border-color: var(--topo-border-bright);
+}
+summary.faq-title-bar {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--topo-text-primary);
+  user-select: none;
+}
+summary.faq-title-bar::-webkit-details-marker {
+  display: none;
+}
+.faq-q-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.faq-label-q {
+  color: var(--topo-accent-emerald);
+  font-weight: 700;
+  font-size: 17px;
+}
+.faq-arrow {
+  font-size: 11px;
+  color: var(--topo-accent-emerald);
+  transition: transform 0.25s ease;
+}
+details[open] .faq-arrow {
+  transform: rotate(180deg);
+}
+details.faq-box .faq-answer-bar {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--topo-text-secondary);
+  line-height: 1.7;
+  padding-left: 24px;
+}
+
+.page-action-center {
+  margin-top: 36px;
+  text-align: center;
+}
+
+/* 真实评价网格 (3个) */
+.reviews-topo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-topo-card {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-md);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--topo-transition);
+}
+.review-topo-card:hover {
+  border-color: var(--topo-border-bright);
+  transform: translateY(-3px);
+}
+.review-quote-txt {
+  font-size: 13.8px;
+  color: var(--topo-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.review-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.review-initial {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--topo-primary), #059669);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+.review-info-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--topo-text-primary);
+}
+.review-info-role {
+  font-size: 12px;
+  color: var(--topo-text-muted);
+}
+
+/* 底部极简规范页脚：严格只有4个链接 (全中文) */
+.topo-footer {
+  background: #040608;
+  border-top: 1px solid var(--topo-border-subtle);
+  padding: 40px 0 30px;
+  margin-top: 60px;
+}
+.topo-footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 36px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.topo-footer-nav a {
+  color: var(--topo-text-secondary);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: var(--topo-transition);
+}
+.topo-footer-nav a:hover {
+  color: var(--topo-accent-emerald);
+}
+.topo-footer-copy {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--topo-text-muted);
+}
+
+/* 资讯中心聚合页专属样式 */
+.digest-header {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+.digest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+.digest-card {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-md);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--topo-transition);
+}
+.digest-card:hover {
+  border-color: var(--topo-accent-emerald);
+  transform: translateY(-4px);
+  box-shadow: var(--topo-shadow-card);
+}
+.digest-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--topo-text-muted);
+  margin-bottom: 14px;
+}
+.digest-card-tag {
+  background: rgba(16, 185, 129, 0.16);
+  color: var(--topo-accent-emerald);
+  padding: 2px 8px;
+  border-radius: var(--topo-radius-sm);
+  font-weight: 600;
+}
+.digest-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 14px;
+  color: var(--topo-text-primary);
+}
+.digest-card:hover .digest-card-title {
+  color: var(--topo-accent-emerald);
+}
+.digest-card-excerpt {
+  font-size: 14px;
+  color: var(--topo-text-secondary);
+  line-height: 1.68;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.digest-card-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--topo-accent-emerald);
+}
+.digest-card:hover .digest-card-readmore {
+  color: var(--topo-accent-coral);
+}
+
+/* 独立文章详情排版 */
+.article-topo-container {
+  max-width: 860px;
+  margin: 40px auto 70px;
+  padding: 0 24px;
+}
+.article-topo-header {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.article-topo-breadcrumb {
+  font-size: 13px;
+  color: var(--topo-text-muted);
+  margin-bottom: 18px;
+}
+.article-topo-breadcrumb a {
+  color: var(--topo-text-secondary);
+}
+.article-topo-breadcrumb a:hover {
+  color: var(--topo-accent-emerald);
+}
+.article-topo-headline {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 16px;
+  color: var(--topo-text-primary);
+}
+.article-topo-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 13px;
+  color: var(--topo-text-muted);
+  flex-wrap: wrap;
+}
+.article-topo-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.article-topo-body {
+  font-size: 16px;
+  color: #cbd5e1;
+  line-height: 1.85;
+}
+.article-topo-body h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--topo-text-primary);
+  margin: 42px 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+}
+.article-topo-body h3 {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--topo-accent-emerald);
+  margin: 28px 0 12px;
+}
+.article-topo-body p {
+  margin-bottom: 22px;
+  text-align: justify;
+}
+.article-topo-body ul, .article-topo-body ol {
+  margin: 18px 0 24px 24px;
+  color: var(--topo-text-secondary);
+}
+.article-topo-body li {
+  margin-bottom: 8px;
+}
+.topo-callout {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--topo-primary);
+  border-radius: 0 var(--topo-radius-sm) var(--topo-radius-sm) 0;
+  padding: 18px 22px;
+  margin: 28px 0;
+  font-size: 15px;
+  color: var(--topo-text-primary);
+}
+.topo-cta-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(249, 115, 22, 0.12));
+  border: 1px solid var(--topo-border-bright);
+  border-radius: var(--topo-radius-md);
+  padding: 30px 24px;
+  margin: 45px 0 20px;
+  text-align: center;
+}
+.topo-cta-card h3 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.topo-cta-card p {
+  color: var(--topo-text-secondary);
+  max-width: 540px;
+  margin: 0 auto 20px;
+  font-size: 14.5px;
+}
+
+/* 政策协议排版 */
+.policy-topo-page {
+  max-width: 900px;
+  margin: 50px auto 80px;
+  padding: 0 24px;
+}
+.policy-topo-card {
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-lg);
+  padding: 44px 36px;
+}
+.policy-topo-card h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--topo-text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+}
+.policy-topo-card h2 {
+  font-size: 20px;
+  color: var(--topo-accent-emerald);
+  margin: 32px 0 14px;
+}
+.policy-topo-card p {
+  color: var(--topo-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.policy-topo-card ul {
+  margin: 12px 0 20px 24px;
+  color: var(--topo-text-secondary);
+}
+.policy-topo-card li {
+  margin-bottom: 8px;
+}
+
+/* 网站地图树形排版 */
+.sitemap-topo-group {
+  margin-bottom: 30px;
+}
+.sitemap-topo-group h2 {
+  font-size: 18px;
+  color: var(--topo-accent-coral);
+  margin-bottom: 14px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+.sitemap-topo-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.sitemap-topo-list li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--topo-radius-sm);
+  font-size: 14px;
+}
+.sitemap-topo-list li a:hover {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--topo-border-bright);
+}
+
+/* 响应式断点 */
+@media (max-width: 1024px) {
+  .pillars-grid, .infra-grid, .eco-grid, .reviews-topo-grid, .digest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .plans-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .topo-hero {
+    padding: 40px 0 50px;
+  }
+  .topo-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+  }
+  .topo-badge-milestone {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .topo-hero-title {
+    font-size: 32px;
+  }
+  .topo-hero-desc {
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .topo-hero-cta-group {
+    justify-content: center;
+  }
+  .topo-metrics-strip {
+    justify-content: center;
+    gap: 20px;
+  }
+  .topo-sec-title {
+    font-size: 26px;
+  }
+  .pillars-grid, .infra-grid, .eco-grid, .reviews-topo-grid, .digest-grid, .sitemap-topo-list {
+    grid-template-columns: 1fr;
+  }
+  .policy-topo-card {
+    padding: 28px 18px;
+  }
+  .article-topo-headline {
+    font-size: 24px;
+  }
+  .article-topo-body h2 {
+    font-size: 20px;
+  }
+  .article-topo-body h3 {
+    font-size: 17px;
+  }
+
+  .topo-hamburger-label {
+    display: flex;
+  }
+  .topo-nav-menu {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #0d121a;
+    border-bottom: 1px solid var(--topo-border-bright);
+    padding: 20px 24px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
+  }
+  .topo-nav-list {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .topo-nav-item {
+    width: 100%;
+  }
+  .topo-nav-item a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .topo-nav-toggle:checked ~ .topo-nav-menu {
+    display: flex;
+  }
+}
+
+
+/* 相关阅读推荐 */
+.related-articles-sec {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--topo-border-subtle);
+}
+.related-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--topo-text-primary);
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.related-card {
+  display: block;
+  background: var(--topo-bg-card);
+  border: 1px solid var(--topo-border-subtle);
+  border-radius: var(--topo-radius-md);
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: var(--topo-transition);
+}
+.related-card:hover {
+  border-color: var(--topo-border-bright);
+  transform: translateY(-2px);
+}
+.related-cat {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--topo-accent-emerald);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.related-heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--topo-text-primary);
+  line-height: 1.5;
+  margin: 0;
+}
+.interlink-box {
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px dashed var(--topo-border-subtle);
+  border-radius: var(--topo-radius-sm);
+  text-align: center;
+  font-size: 14px;
+  color: var(--topo-text-secondary);
+}

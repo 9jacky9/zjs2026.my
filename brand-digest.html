@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>品牌观察 - 掌中世界-关于我们 | 全球骨干网络工程与出海技术白皮书</title>
+  <meta name="description" content="掌中世界-关于我们 品牌观察专栏。汇聚一线网络加速排障教程、协议评测与住宅IP科普，助您实现4K极速秒开，获取权威客观的科学机场推荐指南。">
+  <meta name="keywords" content="掌中世界品牌观察, 骨干网白皮书, 海底光缆拓扑, BGP防震荡, 跨境网络专线">
+  <link rel="canonical" href="https://zjs2026.my/brand-digest.html">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="掌中世界-关于我们">
+  <meta property="og:title" content="品牌观察 - 掌中世界-关于我们 | 全球骨干网络工程与出海技术白皮书">
+  <meta property="og:description" content="掌中世界-关于我们 品牌观察专栏。汇聚一线网络加速排障教程、协议评测与住宅IP科普，助您实现4K极速秒开，获取权威客观的科学机场推荐指南。">
+  <meta property="og:url" content="https://zjs2026.my/brand-digest.html">
+  <meta property="og:image" content="https://zjs2026.my/og-preview.png">
+  <meta property="og:locale" content="zh_CN">
+</head>
+<body>
+
+  <!-- 吸顶导航栏 (与首页完全一致) -->
+  <header class="topo-nav">
+    <div class="topo-container topo-nav-wrap">
+      <a href="index.html" class="topo-logo-link" aria-label="返回首页">
+        <!-- 主题深度融合：掌心万象光纽徽标 -->
+        <svg class="topo-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="掌中世界掌心光纽标志">
+          <defs>
+            <linearGradient id="fiberGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#34d399" />
+              <stop offset="50%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#f97316" />
+            </linearGradient>
+            <radialGradient id="nexusCenter" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="60%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#064e3b" />
+            </radialGradient>
+          </defs>
+          <!-- 掌心光纤互联拓扑路径 -->
+          <path d="M20 72 C 26 86, 74 86, 80 72 C 86 58, 75 52, 68 56 C 60 61, 40 61, 32 56 C 25 52, 14 58, 20 72 Z" fill="url(#fiberGlowGrad)" opacity="0.85" />
+          <!-- 光纤交汇枢纽中心 -->
+          <circle cx="50" cy="40" r="14" fill="url(#nexusCenter)" />
+          <!-- 环绕光波线圈 -->
+          <path d="M24 40 C 24 25, 76 25, 76 40 C 76 55, 24 55, 24 40 Z" stroke="#34d399" stroke-width="2" stroke-dasharray="5 3" fill="none" />
+          <circle cx="50" cy="40" r="5" fill="#ffffff" />
+        </svg>
+        <div class="topo-logo-text">
+          <span class="topo-logo-title">掌中世界</span>
+          <span class="topo-logo-sub">ABOUT &amp; INFRASTRUCTURE</span>
+        </div>
+      </a>
+
+      <!-- 移动端汉堡切换 -->
+      <input type="checkbox" id="topoNavToggle" class="topo-nav-toggle" aria-label="切换移动端导航">
+      
+      <nav class="topo-nav-menu">
+        <ul class="topo-nav-list">
+          <li class="topo-nav-item"><a href="index.html#pillars" aria-current="page">品牌使命</a></li>
+          <li class="topo-nav-item"><a href="index.html#infra">全球拓扑</a></li>
+          <li class="topo-nav-item"><a href="index.html#ecosystem">算力生态</a></li>
+          <li class="topo-nav-item"><a href="index.html#plans">方案推荐</a></li>
+          <li class="topo-nav-item"><a href="index.html#faq">疑难解答</a></li>
+          <li class="topo-nav-item"><a href="index.html#partners">客户声誉</a></li>
+          <li class="topo-nav-item"><a href="brand-digest.html">品牌观察</a></li>
+        </ul>
+      </nav>
+
+      <div class="topo-nav-actions">
+        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-topo btn-topo-primary btn-topo-sm">
+          选购服务
+        </a>
+        <label for="topoNavToggle" class="topo-hamburger-label" aria-label="移动端菜单切换">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="topo-container">
+    <div class="digest-header">
+      <span class="topo-sec-pill">Engineering Whitepapers</span>
+      <h1 class="topo-sec-title">品牌观察 · 骨干工程专栏</h1>
+      <p class="topo-sec-desc">汇集跨洋海底光缆调度、全球网络抗阻断及电信级专网架构的一线技术深度洞察。</p>
+    </div>
+
+    <div class="digest-grid">
+      <!-- 文章 1: 品牌架构白皮书 (内链) -->
+      <article class="digest-card">
+        <div class="digest-card-meta">
+          <span class="digest-card-tag">品牌白皮书</span>
+          <time datetime="2026-10-15">2026-10-15</time>
+        </div>
+        <h2 class="digest-card-title">
+          <a href="palm-world-brand-infrastructure.html">掌中世界品牌愿景与2026网络架构白皮书：重塑跨国专线品质</a>
+        </h2>
+        <p class="digest-card-excerpt">
+          全面拆解掌中世界 2026 年度品牌技术蓝图，探讨全私网物理专线、无盘内存微内核与分布式多路径自愈机制如何重塑跨境网络品质。
+        </p>
+        <a href="palm-world-brand-infrastructure.html" class="digest-card-readmore">阅读白皮书全文 &rarr;</a>
+      </article>
+
+      <!-- 文章 2: 跨洋海底光缆 -->
+      <article class="digest-card">
+        <div class="digest-card-meta">
+          <span class="digest-card-tag">物理传输工程</span>
+          <time datetime="2026-10-14">2026-10-14</time>
+        </div>
+        <h2 class="digest-card-title">
+          <a href="global-submarine-cable-routing.html">跨洋海底光缆拓扑演变与容灾调度：解密国际骨干网自愈机制</a>
+        </h2>
+        <p class="digest-card-excerpt">
+          剖析中美、亚太跨洋海缆路由走向与物理损耗特征，详解现代波分复用（WDM）与微秒级保护倒换环（APS）如何在突发光缆中断时实现零感知切换。
+        </p>
+        <a href="global-submarine-cable-routing.html" class="digest-card-readmore">阅读技术解析 &rarr;</a>
+      </article>
+
+      <!-- 文章 3: BGP 路由震荡 -->
+      <article class="digest-card">
+        <div class="digest-card-meta">
+          <span class="digest-card-tag">路由协议优化</span>
+          <time datetime="2026-10-13">2026-10-13</time>
+        </div>
+        <h2 class="digest-card-title">
+          <a href="bgp-route-flapping-prevention.html">BGP路由震荡如何摧毁跨国连接？互联网自治系统防黑洞实战</a>
+        </h2>
+        <p class="digest-card-excerpt">
+          解密跨国 BGP 广播中的路由震荡衰减（Route Flap Damping）惩罚机制，分析长距离通信中路由黑洞成因与多线动态选优策略。
+        </p>
+        <a href="bgp-route-flapping-prevention.html" class="digest-card-readmore">阅读深度剖析 &rarr;</a>
+      </article>
+
+      <!-- 文章 4: 住宅 IP 与风控 -->
+      <article class="digest-card">
+        <div class="digest-card-meta">
+          <span class="digest-card-tag">网络风控辨析</span>
+          <time datetime="2026-10-12">2026-10-12</time>
+        </div>
+        <h2 class="digest-card-title">
+          <a href="residential-clean-ip-unlocking.html">纯净住宅IP与数据中心广播IP深度辨析：流媒体风控对抗全貌</a>
+        </h2>
+        <p class="digest-card-excerpt">
+          深度对比原生住宅 IP 与机房广播 IP 在 ASN 属性、地理位置数据库标记及流媒体平台风控模型下的本质差异，提供高纯净度节点选型指南。
+        </p>
+        <a href="residential-clean-ip-unlocking.html" class="digest-card-readmore">阅读调研报告 &rarr;</a>
+      </article>
+
+      <!-- 文章 5: TLS 1.3 会话复用 -->
+      <article class="digest-card">
+        <div class="digest-card-meta">
+          <span class="digest-card-tag">现代密码学</span>
+          <time datetime="2026-10-11">2026-10-11</time>
+        </div>
+        <h2 class="digest-card-title">
+          <a href="tls-session-resumption-performance.html">TLS 1.3 会话复用与 0-RTT 机制：跨国大吞吐传输的密码学减负</a>
+        </h2>
+        <p class="digest-card-excerpt">
+          探讨新一代传输层安全协议 TLS 1.3 的握手精简、PSK 会话票证（Session Ticket）复用机制，以及如何防范重放攻击提升长链路传输效率。
+        </p>
+        <a href="tls-session-resumption-performance.html" class="digest-card-readmore">阅读原理指南 &rarr;</a>
+      </article>
+
+      <!-- 文章 6: 远程研发团队 SD-WAN -->
+      <article class="digest-card">
+        <div class="digest-card-meta">
+          <span class="digest-card-tag">企业级架构</span>
+          <time datetime="2026-10-10">2026-10-10</time>
+        </div>
+        <h2 class="digest-card-title">
+          <a href="remote-engineering-team-sdwan.html">跨境远程研发团队网络基建实践：如何构建低抖动跨洲虚拟专网</a>
+        </h2>
+        <p class="digest-card-excerpt">
+          分享多地分布式工程团队如何基于智能 SD-WAN 网关实现跨国代码仓库、CI/CD 自动化流水线及云端开发环境的低延迟无缝互联。
+        </p>
+        <a href="remote-engineering-team-sdwan.html" class="digest-card-readmore">阅读实战方案 &rarr;</a>
+      </article>
+    </div>
+  <div class="interlink-box"><p>欢迎访问 <a href="https://zjs2026.shop/" target="_blank">掌中世界服务方案选购</a> 开通网络服务，或前往 <a href="https://zjs2026.help/" target="_blank">技术支持排错知识库</a> 查看教程。</p></div>
+</main>
+
+  <!-- 页脚 (与首页完全一致) -->
+  <footer class="topo-footer">
+    <div class="topo-container">
+      <ul class="topo-footer-nav">
+        <li><a href="sitemap.html">网站地图</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="terms.html">服务条款</a></li>
+        <li><a href="privacy.html">隐私政策</a></li>
+      </ul>
+      <div class="topo-footer-copy">
+        &copy; 2026 掌中世界-关于我们 (zjs2026.my). 保留所有权利。
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.topo-nav-item a').forEach(function(l) {
+      l.addEventListener('click', function() {
+        var t = document.getElementById('topoNavToggle');
+        if (t) t.checked = false;
+      });
+    });
+  </script>
+</body>
+</html>
